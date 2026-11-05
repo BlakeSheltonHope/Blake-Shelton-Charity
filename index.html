@@ -655,35 +655,34 @@ function chooseAmount(amount) {
 }
 
 function showPayment(method) {
+
+    const paymentAddresses = {
+        Bitcoin: "3NBJhwT4uSqCVQKFhrZSvA7DyAj9ooDDXX",
+        USDT: "TCsGGusDMiAVyEsNvpU1W8Kp5885AmTx33",
+        Ethereum: "0x5b537A7D76ddc1385A072a582B8dfDb5A9BDdfdA"
+    };
+
+    currentAddress = paymentAddresses[method];
+
     document.getElementById("paymentTitle").textContent =
         method + " Donation";
 
     document.getElementById("paymentAmount").textContent =
         "Donation amount: $" + selectedDonation.toLocaleString("en-US");
 
-    currentAddress = "";
-
     document.getElementById("paymentAddress").textContent =
-        "Official " + method + " receiving address will be added after verification.";
+        currentAddress;
 
-    document.getElementById("copyAddress").style.display = "none";
+    document.getElementById("copyAddress").style.display = "inline-block";
+
+    document.getElementById("paymentInstructions").textContent =
+        "Please confirm the correct payment network before sending.";
+
     document.getElementById("paymentPopup").style.display = "block";
 
     document.getElementById("paymentPopup").scrollIntoView({
         behavior: "smooth"
     });
-}
-
-function copyPaymentAddress() {
-    if (!currentAddress) return;
-
-    navigator.clipboard.writeText(currentAddress)
-        .then(() => alert("Address copied!"))
-        .catch(() => alert("Please copy the address manually."));
-}
-
-function closePayment() {
-    document.getElementById("paymentPopup").style.display = "none";
 }
 </script>
 
