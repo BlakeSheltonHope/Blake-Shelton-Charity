@@ -586,21 +586,28 @@ footer a {
 
 <div id="paymentPopup" style="display:none;margin:30px auto;padding:25px;background:#ffffff;color:#172638;border-radius:15px;max-width:500px;">
 
-<h3 id="paymentTitle"></h3>
+    <h3 id="paymentTitle"></h3>
 
-<p id="paymentAmount"></p>
+    <p id="paymentAmount"></p>
 
-<p id="paymentAddress">Receiving address will be published after verification.</p>
+    <h3>Copy and Paste Wallet Address</h3>
 
-<button id="copyAddress" onclick="copyPaymentAddress()" style="display:none;">
-Copy Address
-</button>
+    <p id="paymentAddress" style="font-weight:bold;word-break:break-all;">
+    </p>
 
-<p id="paymentInstructions">
-Please confirm the receiving address and network before sending.
-</p>
+    <p id="btcMinimum" style="display:none;color:#b42318;font-weight:bold;">
+        Minimum BTC donation: 0.00022 BTC
+    </p>
 
-<button onclick="closePayment()">Close</button>
+    <p>
+        Press and hold the wallet address, select Copy, then paste it into your wallet.
+    </p>
+
+    <p id="paymentInstructions">
+        Please confirm the receiving address and network before sending.
+    </p>
+
+    <button onclick="closePayment()">Close</button>
 
 </div>
 
