@@ -334,7 +334,6 @@ footer a {
         <a href="#projects">Projects</a>
         <a href="#story">Our Vision</a>
         <a href="#contact">Contact</a>
-        <a href="#donate">Donate</a>
     </nav>
 </header>
 
@@ -344,10 +343,7 @@ footer a {
 
     <div>
         <div class="hero-label">Hope • Compassion • Opportunity</div>
-
-        <img src="file_000000004a8082108dd4084f73e2bc58.png"
-             alt="Hope Initiative design"
-             style="width:100%; max-width:600px; height:auto;">
+        <img src="file_000000004a8082108dd4084f73e2bc58.png" alt="Hope Initiative design" style="width:100%; max-width:600px; height:auto;">
 
         <h1>
             Together We Can
@@ -553,8 +549,8 @@ footer a {
 
 </section>
 
+    <!-- DONATION SECTION -->
 <!-- INTERACTIVE DONATION SECTION -->
-
 <section id="donate" style="padding:60px 20px;text-align:center;background:#101c2b;color:white;">
 
 <h2 style="color:#42d879;">Support Our Mission ❤️</h2>
@@ -572,7 +568,6 @@ footer a {
 <button class="amount-btn" onclick="chooseAmount(1000)">$1,000</button>
 <button class="amount-btn" onclick="chooseAmount(2000)">$2,000</button>
 <button class="amount-btn" onclick="chooseAmount(5000)">$5,000</button>
-
 </div>
 
 <div id="paymentChoices" style="display:none;margin-top:35px;">
@@ -581,33 +576,31 @@ footer a {
 
 <p>Selected donation: <strong id="selectedAmount"></strong></p>
 
-<button type="button" onclick="showPayment('Bitcoin')">₿ Bitcoin</button>
+<button onclick="showPayment('Bitcoin')">₿ Bitcoin</button>
 
-<button type="button" onclick="showPayment('USDT')">₮ USDT</button>
+<button onclick="showPayment('USDT')">₮ USDT</button>
 
-<button type="button" onclick="showPayment('Ethereum')">◆ Ethereum</button>
+<button onclick="showPayment('Ethereum')">◆ Ethereum</button>
 
 </div>
 
-<div id="paymentPopup" style="display:none;margin:30px auto;padding:25px;background:#ffffff;color:#172638;border-radius:15px;max-width:500px;overflow-wrap:anywhere;">
+<div id="paymentPopup" style="display:none;margin:30px auto;padding:25px;background:#ffffff;color:#172638;border-radius:15px;max-width:500px;">
 
 <h3 id="paymentTitle"></h3>
 
 <p id="paymentAmount"></p>
 
-<p id="paymentAddress" style="font-weight:bold;margin:15px 0;overflow-wrap:anywhere;"></p>
+<p id="paymentAddress">Receiving address will be published after verification.</p>
 
-<button type="button" id="copyAddress" onclick="copyPaymentAddress()" style="display:none;">
+<button id="copyAddress" onclick="copyPaymentAddress()" style="display:none;">
 Copy Address
 </button>
 
-<p id="copyStatus" role="status" aria-live="polite" style="margin-top:10px;"></p>
-
-<p id="paymentInstructions" style="margin-top:15px;">
+<p id="paymentInstructions">
 Please confirm the receiving address and network before sending.
 </p>
 
-<button type="button" onclick="closePayment()">Close</button>
+<button onclick="closePayment()">Close</button>
 
 </div>
 
@@ -632,35 +625,14 @@ Availability, supported cryptocurrencies and payment options depend on your coun
 
 <style>
 .amount-btn {
-    padding:15px 22px;
-    background:#42d879;
-    color:#101c2b;
-    border:0;
-    border-radius:8px;
-    font-weight:bold;
-    cursor:pointer;
-    margin:4px;
-}
-
-.amount-btn:hover {
-    background:#75ef91;
-}
-
-#paymentChoices button,
-#paymentPopup button {
-    padding:12px 18px;
-    margin:6px;
-    border:0;
-    border-radius:7px;
-    background:#42d879;
-    color:#101c2b;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-#paymentChoices button:hover,
-#paymentPopup button:hover {
-    background:#75ef91;
+padding:15px 22px;
+background:#42d879;
+color:#101c2b;
+border:0;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+margin:4px;
 }
 </style>
 
@@ -668,133 +640,55 @@ Availability, supported cryptocurrencies and payment options depend on your coun
 let selectedDonation = 0;
 let currentAddress = "";
 
-/*
-  Donation wallet addresses supplied for this website.
-
-  IMPORTANT:
-  Confirm the supported network for each address with
-  your wallet provider before accepting payments.
-*/
-
-const paymentAddresses = {
-    Bitcoin: "3NBJhwT4uSqCVQKFhrZSvA7DyAj9ooDDXX",
-
-    USDT: "TCsGGusDMiAVyEsNvpU1W8Kp5885AmTx33",
-
-    Ethereum: "0x5b537A7D76ddc1385A072a582B8dfDb5A9BDdfdA"
-};
-
 function chooseAmount(amount) {
-
     selectedDonation = amount;
 
     document.getElementById("selectedAmount").textContent =
         "$" + amount.toLocaleString("en-US");
 
     document.getElementById("paymentChoices").style.display = "block";
-
     document.getElementById("paymentPopup").style.display = "none";
 
     document.getElementById("paymentChoices").scrollIntoView({
-        behavior: "smooth",
-        block: "center"
+        behavior: "smooth"
     });
 }
 
 function showPayment(method) {
-
-    if (!selectedDonation) {
-        alert("Please choose a donation amount first.");
-        return;
-    }
-
-    if (!paymentAddresses[method]) {
-        alert("Payment method not found.");
-        return;
-    }
-
-    currentAddress = paymentAddresses[method];
-
     document.getElementById("paymentTitle").textContent =
         method + " Donation";
 
     document.getElementById("paymentAmount").textContent =
         "Donation amount: $" + selectedDonation.toLocaleString("en-US");
 
+    currentAddress = "";
+
     document.getElementById("paymentAddress").textContent =
-        currentAddress;
+        "Official " + method + " receiving address will be added after verification.";
 
-    document.getElementById("copyAddress").style.display =
-        "inline-block";
-
-    document.getElementById("copyStatus").textContent = "";
-
-    document.getElementById("paymentInstructions").textContent =
-        "IMPORTANT: Confirm the correct cryptocurrency network with the wallet owner before sending. Do not send funds until the network and recipient details have been independently verified.";
-
+    document.getElementById("copyAddress").style.display = "none";
     document.getElementById("paymentPopup").style.display = "block";
 
     document.getElementById("paymentPopup").scrollIntoView({
-        behavior: "smooth",
-        block: "center"
+        behavior: "smooth"
     });
 }
 
-async function copyPaymentAddress() {
+function copyPaymentAddress() {
+    if (!currentAddress) return;
 
-    if (!currentAddress) {
-        return;
-    }
-
-    const status = document.getElementById("copyStatus");
-
-    try {
-
-        if (navigator.clipboard && window.isSecureContext) {
-
-            await navigator.clipboard.writeText(currentAddress);
-
-        } else {
-
-            const temporaryInput = document.createElement("textarea");
-
-            temporaryInput.value = currentAddress;
-            temporaryInput.style.position = "fixed";
-            temporaryInput.style.opacity = "0";
-
-            document.body.appendChild(temporaryInput);
-
-            temporaryInput.focus();
-            temporaryInput.select();
-
-            const copied = document.execCommand("copy");
-
-            document.body.removeChild(temporaryInput);
-
-            if (!copied) {
-                throw new Error("Copy failed");
-            }
-        }
-
-        status.textContent = "Wallet address copied successfully!";
-
-    } catch (error) {
-
-        status.textContent =
-            "Automatic copying failed. Please select and copy the address manually.";
-
-    }
+    navigator.clipboard.writeText(currentAddress)
+        .then(() => alert("Address copied!"))
+        .catch(() => alert("Please copy the address manually."));
 }
 
 function closePayment() {
-
     document.getElementById("paymentPopup").style.display = "none";
-
 }
 </script>
 
-<!-- MESSAGES OF HOPE -->
 
+<!-- MESSAGES OF HOPE -->
 <section style="padding:60px 20px; text-align:center; background:#f3f6f5; color:#172638;">
 
     <h2>Messages of Hope ❤️</h2>
@@ -825,8 +719,8 @@ function closePayment() {
 
 </section>
 
-<!-- SUPPORTER REVIEWS -->
 
+<!-- SUPPORTER REVIEWS -->
 <section style="padding:50px 20px; text-align:center; background:#ffffff; color:#172638;">
 
     <h2>Supporter Experiences</h2>
@@ -836,7 +730,6 @@ function closePayment() {
     <p>Verified supporter reviews will appear here with permission from their authors.</p>
 
 </section>
-
 </main>
 
 <footer>
