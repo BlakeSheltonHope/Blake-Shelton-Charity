@@ -696,12 +696,54 @@ function showPayment(method) {
 
     document.getElementById("paymentPopup").style.display = "block";
 
-    document.getElementById("paymentPopup").scrollIntoView({
+        document.getElementById("paymentPopup").scrollIntoView({
         behavior: "smooth"
     });
 }
-</script>
 
+async function copyPaymentAddress() {
+    if (!currentAddress) {
+        alert("No wallet address available.");
+        return;
+    }
+
+    try {
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(currentAddress);
+            alert("Wallet address copied successfully!");
+            return;
+        }
+    } catch (error) {
+        // Use the backup method below.
+    }
+
+    const input = document.createElement("textarea");
+    input.value = currentAddress;
+    input.style.position = "fixed";
+    input.style.opacity = "0";
+
+    document.body.appendChild(input);
+    input.focus();
+    input.select();
+    input.setSelectionRange(0, input.value.length);
+
+    let copied = false;
+
+    try {
+        copied = document.execCommand("copy");
+    } catch (error) {
+        copied = false;
+    }
+
+    document.body.removeChild(input);
+
+    if (copied) {
+        alert("Wallet address copied successfully!");
+    } else {
+        prompt("Copy your wallet address:", currentAddress);
+    }
+}
+</script>
 
 <!-- MESSAGES OF HOPE -->
 <section style="padding:60px 20px; text-align:center; background:#f3f6f5; color:#172638;">
