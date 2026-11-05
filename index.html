@@ -648,25 +648,18 @@ function chooseAmount(amount) {
 
     document.getElementById("paymentChoices").style.display = "block";
     document.getElementById("paymentPopup").style.display = "none";
-
-    document.getElementById("paymentChoices").scrollIntoView({
-        behavior: "smooth"
-    });
 }
 
 function showPayment(method) {
-
     const paymentDetails = {
         Bitcoin: {
             address: "3NBJhwT4uSqCVQKFhrZSvA7DyAj9ooDDXX",
             network: "Bitcoin Network"
         },
-
         USDT: {
             address: "TCsGGusDMiAVyEsNvpU1W8Kp5885AmTx33",
             network: "TRC20 (TRON)"
         },
-
         Ethereum: {
             address: "0x5b537A7D76ddc1385A072a582B8dfDb5A9BDdfdA",
             network: "ERC20 (Ethereum)"
@@ -674,74 +667,59 @@ function showPayment(method) {
     };
 
     const payment = paymentDetails[method];
-
     if (!payment) return;
 
     currentAddress = payment.address;
 
-    document.getElementById("paymentTitle").textContent =
-        method + " Donation";
-
+    document.getElementById("paymentTitle").textContent = method + " Donation";
     document.getElementById("paymentAmount").textContent =
         "Donation amount: $" + selectedDonation.toLocaleString("en-US");
-
-    document.getElementById("paymentAddress").textContent =
-        payment.address;
-
+    document.getElementById("paymentAddress").textContent = currentAddress;
     document.getElementById("copyAddress").style.display = "inline-block";
 
     document.getElementById("paymentInstructions").textContent =
         "Payment network: " + payment.network +
-        ". Send only through this network. Sending through another network may result in permanent loss of funds.";
+        ". Only send through this network.";
 
     document.getElementById("paymentPopup").style.display = "block";
-
-        document.getElementById("paymentPopup").scrollIntoView({
-        behavior: "smooth"
-    });
 }
 
-async function copyPaymentAddress() {
+function copyPaymentAddress() {
     if (!currentAddress) {
-        alert("No wallet address available.");
+        alert("Please select a payment method first.");
         return;
     }
 
-    try {
-        if (navigator.clipboard && window.isSecureContext) {
-            await navigator.clipboard.writeText(currentAddress);
-            alert("Wallet address copied successfully!");
-            return;
-        }
-    } catch (error) {
-        // Use the backup method below.
-    }
+    const textArea = document.createElement("textarea");
+    textArea.value = currentAddress;
+    textArea.readOnly = true;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-9999px";
 
-    const input = document.createElement("textarea");
-    input.value = currentAddress;
-    input.style.position = "fixed";
-    input.style.opacity = "0";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    textArea.setSelectionRange(0, textArea.value.length);
 
-    document.body.appendChild(input);
-    input.focus();
-    input.select();
-    input.setSelectionRange(0, input.value.length);
-
-    let copied = false;
+    let success = false;
 
     try {
-        copied = document.execCommand("copy");
+        success = document.execCommand("copy");
     } catch (error) {
-        copied = false;
+        success = false;
     }
 
-    document.body.removeChild(input);
+    document.body.removeChild(textArea);
 
-    if (copied) {
-        alert("Wallet address copied successfully!");
+    if (success) {
+        alert("Wallet address copied!");
     } else {
-        prompt("Copy your wallet address:", currentAddress);
+        prompt("Copy this wallet address manually:", currentAddress);
     }
+}
+
+function closePayment() {
+    document.getElementById("paymentPopup").style.display = "none";
 }
 </script>
 
