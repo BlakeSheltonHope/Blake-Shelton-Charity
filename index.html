@@ -586,28 +586,21 @@ footer a {
 
 <div id="paymentPopup" style="display:none;margin:30px auto;padding:25px;background:#ffffff;color:#172638;border-radius:15px;max-width:500px;">
 
-    <h3 id="paymentTitle"></h3>
+<h3 id="paymentTitle"></h3>
 
-    <p id="paymentAmount"></p>
+<p id="paymentAmount"></p>
 
-    <h3>Copy and Paste Wallet Address</h3>
+<p id="paymentAddress">Receiving address will be published after verification.</p>
 
-    <p id="paymentAddress" style="font-weight:bold;word-break:break-all;">
-    </p>
+<button id="copyAddress" onclick="copyPaymentAddress()" style="display:none;">
+Copy Address
+</button>
 
-    <p id="btcMinimum" style="display:none;color:#b42318;font-weight:bold;">
-        Minimum BTC donation: 0.00022 BTC
-    </p>
+<p id="paymentInstructions">
+Please confirm the receiving address and network before sending.
+</p>
 
-    <p>
-        Press and hold the wallet address, select Copy, then paste it into your wallet.
-    </p>
-
-    <p id="paymentInstructions">
-        Please confirm the receiving address and network before sending.
-    </p>
-
-    <button onclick="closePayment()">Close</button>
+<button onclick="closePayment()">Close</button>
 
 </div>
 
@@ -644,7 +637,6 @@ margin:4px;
 </style>
 
 <script>
-alert("Hope Initiative JavaScript is working!");
 let selectedDonation = 0;
 let currentAddress = "";
 
@@ -656,18 +648,25 @@ function chooseAmount(amount) {
 
     document.getElementById("paymentChoices").style.display = "block";
     document.getElementById("paymentPopup").style.display = "none";
+
+    document.getElementById("paymentChoices").scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
 function showPayment(method) {
+
     const paymentDetails = {
         Bitcoin: {
             address: "3NBJhwT4uSqCVQKFhrZSvA7DyAj9ooDDXX",
             network: "Bitcoin Network"
         },
+
         USDT: {
             address: "TCsGGusDMiAVyEsNvpU1W8Kp5885AmTx33",
             network: "TRC20 (TRON)"
         },
+
         Ethereum: {
             address: "0x5b537A7D76ddc1385A072a582B8dfDb5A9BDdfdA",
             network: "ERC20 (Ethereum)"
@@ -675,49 +674,7 @@ function showPayment(method) {
     };
 
     const payment = paymentDetails[method];
-    if (!payment) return;
 
-    currentAddress = payment.address;
-
-    document.getElementById("paymentTitle").textContent = method + " Donation";
-    document.getElementById("paymentAmount").textContent =
-        "Donation amount: $" + selectedDonation.toLocaleString("en-US");
-    document.getElementById("paymentAddress").textContent = currentAddress;
-    document.getElementById("btcMinimum").style.display =
-    method === "Bitcoin" ? "block" : "none";
-
-    document.getElementById("paymentInstructions").textContent =
-<script>
-let selectedDonation = 0;
-let currentAddress = "";
-
-function chooseAmount(amount) {
-    selectedDonation = amount;
-
-    document.getElementById("selectedAmount").textContent =
-        "$" + amount.toLocaleString("en-US");
-
-    document.getElementById("paymentChoices").style.display = "block";
-    document.getElementById("paymentPopup").style.display = "none";
-}
-
-function showPayment(method) {
-    const paymentDetails = {
-        Bitcoin: {
-            address: "3NBJhwT4uSqCVQKFhrZSvA7DyAj9ooDDXX",
-            network: "Bitcoin Network"
-        },
-        USDT: {
-            address: "TCsGGusDMiAVyEsNvpU1W8Kp5885AmTx33",
-            network: "TRC20 (TRON)"
-        },
-        Ethereum: {
-            address: "0x5b537A7D76ddc1385A072a582B8dfDb5A9BDdfdA",
-            network: "ERC20 (Ethereum)"
-        }
-    };
-
-    const payment = paymentDetails[method];
     if (!payment) return;
 
     currentAddress = payment.address;
@@ -729,20 +686,62 @@ function showPayment(method) {
         "Donation amount: $" + selectedDonation.toLocaleString("en-US");
 
     document.getElementById("paymentAddress").textContent =
-        currentAddress;
+        payment.address;
 
-    document.getElementById("btcMinimum").style.display =
-        method === "Bitcoin" ? "block" : "none";
+    document.getElementById("copyAddress").style.display = "inline-block";
 
     document.getElementById("paymentInstructions").textContent =
         "Payment network: " + payment.network +
-        ". Press and hold the address to copy it. Only use this network.";
+        ". Send only through this network. Sending through another network may result in permanent loss of funds.";
 
     document.getElementById("paymentPopup").style.display = "block";
+
+        document.getElementById("paymentPopup").scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
-function closePayment() {
-    document.getElementById("paymentPopup").style.display = "none";
+async function copyPaymentAddress() {
+    if (!currentAddress) {
+        alert("No wallet address available.");
+        return;
+    }
+
+    try {
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(currentAddress);
+            alert("Wallet address copied successfully!");
+            return;
+        }
+    } catch (error) {
+        // Use the backup method below.
+    }
+
+    const input = document.createElement("textarea");
+    input.value = currentAddress;
+    input.style.position = "fixed";
+    input.style.opacity = "0";
+
+    document.body.appendChild(input);
+    input.focus();
+    input.select();
+    input.setSelectionRange(0, input.value.length);
+
+    let copied = false;
+
+    try {
+        copied = document.execCommand("copy");
+    } catch (error) {
+        copied = false;
+    }
+
+    document.body.removeChild(input);
+
+    if (copied) {
+        alert("Wallet address copied successfully!");
+    } else {
+        prompt("Copy your wallet address:", currentAddress);
+    }
 }
 </script>
 
