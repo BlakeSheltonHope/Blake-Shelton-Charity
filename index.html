@@ -687,26 +687,6 @@ function showPayment(method) {
     method === "Bitcoin" ? "block" : "none";
 
     document.getElementById("paymentInstructions").textContent =
-        "Payment network: " + payment.network +
-        ". Only send through this network.";
-
-    document.getElementById("paymentPopup").style.display = "block";
-}
-
-function copyPaymentAddress() {
-    if (!currentAddress) {
-        alert("Please select a payment method first.");
-        return;
-    }
-
-    const textArea = document.createElement("textarea");
-    textArea.value = currentAddress;
-    textArea.readOnly = true;
-    textArea.style.position = "fixed";
-    textArea.style.left = "-9999px";
-
-    document.body.appendChild(textArea);
-    textArea.focus();
 <script>
 let selectedDonation = 0;
 let currentAddress = "";
@@ -756,7 +736,7 @@ function showPayment(method) {
 
     document.getElementById("paymentInstructions").textContent =
         "Payment network: " + payment.network +
-        ". Press and hold the address to copy it, then paste it into your wallet. Only use this network.";
+        ". Press and hold the address to copy it. Only use this network.";
 
     document.getElementById("paymentPopup").style.display = "block";
 }
