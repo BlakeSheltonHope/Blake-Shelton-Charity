@@ -707,24 +707,58 @@ function copyPaymentAddress() {
 
     document.body.appendChild(textArea);
     textArea.focus();
-    textArea.select();
-    textArea.setSelectionRange(0, textArea.value.length);
+<script>
+let selectedDonation = 0;
+let currentAddress = "";
 
-    let success = false;
+function chooseAmount(amount) {
+    selectedDonation = amount;
 
-    try {
-        success = document.execCommand("copy");
-    } catch (error) {
-        success = false;
-    }
+    document.getElementById("selectedAmount").textContent =
+        "$" + amount.toLocaleString("en-US");
 
-    document.body.removeChild(textArea);
+    document.getElementById("paymentChoices").style.display = "block";
+    document.getElementById("paymentPopup").style.display = "none";
+}
 
-    if (success) {
-        alert("Wallet address copied!");
-    } else {
-        prompt("Copy this wallet address manually:", currentAddress);
-    }
+function showPayment(method) {
+    const paymentDetails = {
+        Bitcoin: {
+            address: "3NBJhwT4uSqCVQKFhrZSvA7DyAj9ooDDXX",
+            network: "Bitcoin Network"
+        },
+        USDT: {
+            address: "TCsGGusDMiAVyEsNvpU1W8Kp5885AmTx33",
+            network: "TRC20 (TRON)"
+        },
+        Ethereum: {
+            address: "0x5b537A7D76ddc1385A072a582B8dfDb5A9BDdfdA",
+            network: "ERC20 (Ethereum)"
+        }
+    };
+
+    const payment = paymentDetails[method];
+    if (!payment) return;
+
+    currentAddress = payment.address;
+
+    document.getElementById("paymentTitle").textContent =
+        method + " Donation";
+
+    document.getElementById("paymentAmount").textContent =
+        "Donation amount: $" + selectedDonation.toLocaleString("en-US");
+
+    document.getElementById("paymentAddress").textContent =
+        currentAddress;
+
+    document.getElementById("btcMinimum").style.display =
+        method === "Bitcoin" ? "block" : "none";
+
+    document.getElementById("paymentInstructions").textContent =
+        "Payment network: " + payment.network +
+        ". Press and hold the address to copy it, then paste it into your wallet. Only use this network.";
+
+    document.getElementById("paymentPopup").style.display = "block";
 }
 
 function closePayment() {
