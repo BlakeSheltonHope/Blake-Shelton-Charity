@@ -656,13 +656,28 @@ function chooseAmount(amount) {
 
 function showPayment(method) {
 
-    const paymentAddresses = {
-        Bitcoin: "3NBJhwT4uSqCVQKFhrZSvA7DyAj9ooDDXX",
-        USDT: "TCsGGusDMiAVyEsNvpU1W8Kp5885AmTx33",
-        Ethereum: "0x5b537A7D76ddc1385A072a582B8dfDb5A9BDdfdA"
+    const paymentDetails = {
+        Bitcoin: {
+            address: "3NBJhwT4uSqCVQKFhrZSvA7DyAj9ooDDXX",
+            network: "Bitcoin Network"
+        },
+
+        USDT: {
+            address: "TCsGGusDMiAVyEsNvpU1W8Kp5885AmTx33",
+            network: "TRC20 (TRON)"
+        },
+
+        Ethereum: {
+            address: "0x5b537A7D76ddc1385A072a582B8dfDb5A9BDdfdA",
+            network: "ERC20 (Ethereum)"
+        }
     };
 
-    currentAddress = paymentAddresses[method];
+    const payment = paymentDetails[method];
+
+    if (!payment) return;
+
+    currentAddress = payment.address;
 
     document.getElementById("paymentTitle").textContent =
         method + " Donation";
@@ -671,12 +686,13 @@ function showPayment(method) {
         "Donation amount: $" + selectedDonation.toLocaleString("en-US");
 
     document.getElementById("paymentAddress").textContent =
-        currentAddress;
+        payment.address;
 
     document.getElementById("copyAddress").style.display = "inline-block";
 
     document.getElementById("paymentInstructions").textContent =
-        "Please confirm the correct payment network before sending.";
+        "Payment network: " + payment.network +
+        ". Send only through this network. Sending through another network may result in permanent loss of funds.";
 
     document.getElementById("paymentPopup").style.display = "block";
 
