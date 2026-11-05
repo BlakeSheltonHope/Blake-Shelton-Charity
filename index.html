@@ -682,6 +682,8 @@ function showPayment(method) {
     document.getElementById("paymentAmount").textContent =
         "Donation amount: $" + selectedDonation.toLocaleString("en-US");
     document.getElementById("paymentAddress").textContent = currentAddress;
+    document.getElementById("btcMinimum").style.display =
+    method === "Bitcoin" ? "block" : "none";
     document.getElementById("copyAddress").style.display = "inline-block";
 
     document.getElementById("paymentInstructions").textContent =
