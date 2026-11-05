@@ -1,552 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Hope Initiative | Compassion, Hope and Opportunity</title>
-
-    <meta name="description" content="Hope Initiative is a proposed charitable initiative focused on supporting vulnerable children, people experiencing homelessness, and opportunities for a better future.">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #071522;
-            color: #ffffff;
-            line-height: 1.7;
-        }
-
-        header {
-            background: #091c2c;
-            padding: 18px 7%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
-            border-bottom: 1px solid #193b4b;
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Hope Initiative | Compassion, Hope and Opportunity</title>
-
-    <meta name="description" content="Hope Initiative is a proposed charitable initiative focused on supporting vulnerable children, people experiencing homelessness, and opportunities for a better future.">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #071522;
-            color: #ffffff;
-            line-height: 1.7;
-        }
-
-        header {
-            background: #091c2c;
-            padding: 18px 7%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
-            border-bottom: 1px solid #193b4b;
-        }
-
-        .logo {
-            font-size: 23px;
-            font-weight: bold;
-            color: #42d392;
-            letter-spacing: 1px;
-        }
-
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        nav a:hover {
-            color: #42d392;
-        }
-
-        .donate-nav {
-            background: #42d392;
-            color: #071522;
-            padding: 8px 17px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        .hero {
-            padding: 100px 8%;
-            text-align: center;
-            background: linear-gradient(135deg, #09283a, #071522);
-        }
-
-        .hero-label {
-            color: #42d392;
-            letter-spacing: 3px;
-            font-size: 13px;
-            margin-bottom: 18px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            line-height: 1.2;
-            margin-bottom: 22px;
-        }
-
-        .hero p {
-            max-width: 720px;
-            margin: auto;
-            color: #d0dce3;
-            font-size: 17px;
-        }
-
-        .hero-buttons {
-            margin-top: 30px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 13px 25px;
-            margin: 7px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .primary {
-            background: #42d392;
-            color: #071522;
-        }
-
-        .secondary {
-            border: 1px solid #42d392;
-            color: #42d392;
-        }
-
-        .photo-placeholder {
-            margin: 45px auto 0;
-            max-width: 650px;
-            min-height: 180px;
-            border: 1px dashed #42d392;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 25px;
-            color: #a9c1ca;
-            background: #0b2030;
-        }
-
-        section {
-            padding: 75px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title h2 {
-            color: #42d392;
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: #b9c9d2;
-        }
-
-        .content {
-            max-width: 950px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .content p {
-            color: #d0dce3;
-            margin-bottom: 18px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 22px;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .card {
-            background: #10283a;
-            border: 1px solid #1d4051;
-            border-radius: 10px;
-            padding: 28px;
-        }
-
-        .card h3 {
-            color: #42d392;
-            margin-bottom: 13px;
-        }
-
-        .card p {
-            color: #c4d1d8;
-        }
-
-        .story {
-            background: #0a1d2b;
-        }
-
-        .transparency {
-            background: #10283a;
-        }
-
-        .notice {
-            max-width: 900px;
-            margin: auto;
-            padding: 25px;
-            border-left: 4px solid #42d392;
-            background: #071522;
-            border-radius: 5px;
-        }
-
-        .notice p {
-            color: #d0dce3;
-            margin-bottom: 12px;
-        }
-
-        .donation-section {
-            background: linear-gradient(135deg, #09283a, #071522);
-        }
-
-        .donation-box {
-            max-width: 850px;
-            margin: auto;
-            background: #10283a;
-            border: 1px solid #245064;
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .donation-box h3 {
-            color: #42d392;
-            margin-bottom: 12px;
-        }
-
-        .donation-box p {
-            color: #cbd7dd;
-            margin-bottom: 20px;
-        }
-
-        .amount-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 12px;
-            margin: 25px 0;
-        }
-
-        .amount-btn {
-            background: #071522;
-            color: white;
-            border: 1px solid #42d392;
-            padding: 15px 8px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .amount-btn:hover {
-            background: #42d392;
-            color: #071522;
-        }
-
-        #paymentChoices,
-        #paymentPopup {
-            display: none;
-            margin-top: 25px;
-            padding: 25px;
-            background: #071522;
-            border-radius: 8px;
-        }
-
-        .payment-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .payment-btn {
-            background: #42d392;
-            color: #071522;
-            border: none;
-            padding: 13px 22px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .payment-btn:hover {
-            background: #2db77d;
-        }
-
-        .address-box {
-            background: #10283a;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-            word-break: break-all;
-            color: #42d392;
-            border: 1px solid #245064;
-        }
-
-        .copy-btn,
-        .close-btn {
-            padding: 11px 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            margin: 5px;
-        }
-
-        .copy-btn {
-            background: #42d392;
-            color: #071522;
-        }
-
-        .close-btn {
-            background: #344b5a;
-            color: white;
-        }
-
-        .moonpay {
-            display: inline-block;
-            margin-top: 22px;
-            background: #ffffff;
-            color: #071522;
-            padding: 13px 22px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .small-note {
-            font-size: 13px;
-            color: #a9bbc5;
-            margin-top: 18px;
-        }
-
-        .quotes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .quote {
-            background: #10283a;
-            border-radius: 8px;
-            padding: 25px;
-            text-align: center;
-            color: #d0dce3;
-            font-style: italic;
-        }
-
-        .quote strong {
-            display: block;
-            color: #42d392;
-            margin-top: 15px;
-            font-style: normal;
-        }
-
-        .contact-box {
-            max-width: 750px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .contact-box p {
-            color: #cbd7dd;
-            margin-bottom: 12px;
-        }
-
-        footer {
-            background: #050f18;
-            padding: 30px 8%;
-            text-align: center;
-            color: #9eb0bb;
-            font-size: 13px;
-        }
-
-        footer strong {
-            color: #42d392;
-        }
-
-        @media (max-width: 650px) {
-            header {
-                justify-content: center;
-                text-align: center;
-            }
-
-            nav {
-                justify-content: center;
-            }
-
-            .hero {
-                padding: 75px 6%;
-            }
-
-            .hero h1 {
-                font-size: 35px;
-            }
-
-            section {
-                padding: 55px 6%;
-            }
-
-            .donation-box {
-                padding: 20px 14px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071426">
+<title>Hope Initiative | A Future Together</title>
+<meta name="description" content="A charitable initiative working toward better opportunities for vulnerable children and people experiencing homelessness.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #071426;
+    color: #ffffff;
+    line-height: 1.7;
+}
+
+header {
+    background: #06101e;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #55df77;
+}
+
+.logo span {
+    color: white;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #55df77;
+}
+
+.hero {
+    min-height: 570px;
+    padding: 65px 7%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 35px;
+    background:
+    linear-gradient(120deg, #071426 35%, #102d37 100%);
+}
+
+.hero-label {
+    color: #55df77;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 58px);
+    line-height: 1.15;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: #55df77;
+}
+
+.hero p {
+    color: #d0d9e2;
+    max-width: 520px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: #42d66a;
+    color: #071426;
+    padding: 13px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px 5px 5px 0;
+}
+
+.btn:hover {
+    background: #75ef91;
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 1px solid #55df77;
+}
+
+.photo-area {
+    min-height: 390px;
+    border: 2px dashed #55df77;
+    border-radius: 15px;
+    background:
+    linear-gradient(145deg, #17333c, #0a1729);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    color: #d0e4d4;
+}
+
+.photo-area strong {
+    display: block;
+    color: #55df77;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+section {
+    padding: 75px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #aebdca;
+}
+
+.mission {
+    background: #0c1d30;
+}
+
+.mission-content {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.mission-content p {
+    color: #c7d2dc;
+    margin-bottom: 18px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #10243a;
+    border: 1px solid #203b4e;
+    padding: 30px 24px;
+    border-radius: 12px;
+}
+
+.card .icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #55df77;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #c4d0dc;
+    font-size: 15px;
+}
+
+.vision {
+    background:
+    linear-gradient(120deg, #102f35, #071426);
+    text-align: center;
+}
+
+.vision h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.vision p {
+    max-width: 750px;
+    margin: auto;
+    color: #d1e0dc;
+}
+
+.story {
+    background: #0c1d30;
+}
+
+.story-content {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.story-content p {
+    color: #c7d2dc;
+    margin-bottom: 18px;
+}
+
+.transparency {
+    background: #132c30;
+    border-left: 5px solid #55df77;
+    padding: 28px;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.transparency h3 {
+    color: #55df77;
+    margin-bottom: 12px;
+}
+
+.transparency p {
+    color: #d5e0df;
+}
+
+.support {
+    text-align: center;
+    background: linear-gradient(120deg, #123a2b, #071426);
+}
+
+.support h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.support p {
+    color: #d1ded7;
+    max-width: 650px;
+    margin: 0 auto 25px;
+}
+
+.contact {
+    text-align: center;
+    background: #0c1d30;
+}
+
+footer {
+    background: #040c17;
+    text-align: center;
+    padding: 35px 20px;
+    color: #9eacba;
+    font-size: 13px;
+}
+
+footer p {
+    margin: 8px 0;
+}
+
+footer a {
+    color: #55df77;
+    text-decoration: none;
+}
+
+@media(max-width: 750px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 55px 6%;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .photo-area {
+        min-height: 280px;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">HOPE INITIATIVE</div>
+    <div class="logo">HOPE <span>INITIATIVE</span></div>
 
     <nav>
         <a href="#home">Home</a>
         <a href="#mission">Our Mission</a>
         <a href="#projects">Projects</a>
-        <a href="#vision">Our Vision</a>
+        <a href="#story">Our Vision</a>
         <a href="#contact">Contact</a>
-        <a href="#donate" class="donate-nav">Donate</a>
+        <a href="#donate">Donate</a>
     </nav>
 </header>
 
-<!-- HERO SECTION -->
+<main>
+
 <section class="hero" id="home">
 
-    <div class="hero-label">HOPE • COMPASSION • OPPORTUNITY</div>
+    <div>
+        <div class="hero-label">Hope • Compassion • Opportunity</div>
 
-    <h1>Together We Can Change Lives.</h1>
+        <img src="file_000000004a8082108dd4084f73e2bc58.png"
+             alt="Hope Initiative design"
+             style="width:100%; max-width:600px; height:auto;">
 
-    <p>
-        A better future begins when people choose to care.
-        Hope Initiative is a proposed charitable initiative focused
-        on supporting vulnerable children, helping people experiencing
-        homelessness, and creating opportunities for independence.
-    </p>
+        <h1>
+            Together We Can
+            <span>Change Lives.</span>
+        </h1>
 
-    <div class="hero-buttons">
-        <a href="#mission" class="button primary">Discover Our Mission</a>
-        <a href="#projects" class="button secondary">Explore Our Projects</a>
+        <p>
+            Every person deserves dignity, security and an opportunity
+            to build a better future. Our charitable vision is to create
+            hope for vulnerable children and people experiencing
+            homelessness.
+        </p>
+
+        <a href="#mission" class="btn">Discover Our Mission</a>
+        <a href="#projects" class="btn btn-outline">Explore Our Vision</a>
     </div>
 
-    <div class="photo-placeholder">
+    <div class="photo-area">
         <div>
-            <h3>Campaign Photograph</h3>
+            <strong>Authorized Campaign Photograph</strong>
             <p>
-                An approved campaign photograph may be displayed here
-                once permission and usage rights are confirmed.
+                This space is reserved for an authentic Blake Shelton
+                photograph approved for use in this campaign.
             </p>
         </div>
     </div>
 
 </section>
 
-<!-- MISSION -->
-<section id="mission">
+<section class="mission" id="mission">
 
-    <div class="section-title">
-        <h2>Our Mission</h2>
-        <p>Building hope through compassion and practical support.</p>
-    </div>
+    <div class="mission-content">
+        <div class="section-title">
+            <h2>Our Mission</h2>
+            <p>A world where nobody is forgotten.</p>
+        </div>
 
-    <div class="content">
         <p>
-            Our mission is to develop a supportive environment where
-            vulnerable children and people experiencing homelessness
-            can have access to care, shelter, guidance and opportunities.
+            We believe that compassion should go beyond words.
+            It should become action, opportunity and lasting support
+            for people who need a helping hand.
         </p>
 
         <p>
-            We believe that everyone deserves dignity, a safe place to
-            stay, and the opportunity to build a better future.
+            Our proposed charitable initiative seeks to establish
+            a caring home for orphaned and vulnerable children,
+            provide supportive housing for people experiencing
+            homelessness, and create opportunities for individuals
+            to rebuild their lives.
         </p>
 
         <p>
-            Through community support and responsible planning, we hope
-            to turn this vision into a meaningful and sustainable project.
+            Our dream is not simply to provide temporary relief.
+            It is to help people discover stability, confidence,
+            independence and a renewed sense of hope.
         </p>
     </div>
 
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="story">
+<section id="projects">
 
     <div class="section-title">
-        <h2>Our Proposed Projects</h2>
-        <p>Three important areas of support.</p>
+        <h2>Where We Hope to Make a Difference</h2>
+        <p>Three important areas of our proposed charitable work.</p>
     </div>
 
     <div class="cards">
 
         <div class="card">
-            <h3>Children's Home</h3>
+            <div class="icon">🏡</div>
+            <h3>A Home for Children</h3>
             <p>
-                Our vision includes establishing a safe and caring home
-                for orphaned and vulnerable children, with access to
-                education, basic needs, guidance and emotional support.
+                We aim to establish a safe, caring and supportive
+                orphanage home for children who need protection,
+                guidance, education and opportunities to grow.
             </p>
         </div>
 
         <div class="card">
-            <h3>Supportive Housing</h3>
+            <div class="icon">❤️</div>
+            <h3>Housing for the Homeless</h3>
             <p>
-                We aim to establish a welcoming place where people
-                experiencing homelessness can find temporary shelter,
-                support and a pathway towards a more stable life.
+                We envision providing safe accommodation and
+                supportive services for people experiencing
+                homelessness, helping them regain stability
+                and dignity.
             </p>
         </div>
 
         <div class="card">
-            <h3>Jobs and Opportunities</h3>
+            <div class="icon">🌱</div>
+            <h3>Jobs and Independence</h3>
             <p>
-                We hope to connect residents with skills development,
-                employment opportunities and practical support that
-                can help them become independent.
+                Our long-term vision includes employment,
+                practical skills and development opportunities
+                to help residents work toward independent lives.
             </p>
         </div>
 
@@ -554,431 +452,407 @@
 
 </section>
 
-<!-- VISION -->
-<section id="vision">
+<section class="vision">
 
-    <div class="section-title">
-        <h2>Our Vision</h2>
-        <p>A future where nobody is forgotten.</p>
-    </div>
+    <h2>A Little Hope Can Change Everything</h2>
 
-    <div class="content">
-        <p>
-            We envision a world where children can grow up with care,
-            people without homes can find a new beginning, and individuals
-            can rebuild their lives with dignity.
-        </p>
-
-        <p>
-            Our long-term goal is to create a supportive community
-            that combines shelter, personal development and opportunities
-            for a brighter future.
-        </p>
-    </div>
+    <p>
+        Sometimes the greatest gift we can give another person
+        is the opportunity to begin again. A safe home, a caring
+        community, a chance to learn and an opportunity to work
+        can become the beginning of a completely different future.
+    </p>
 
 </section>
 
-<!-- STORY -->
-<section class="story">
+<section class="story" id="story">
 
-    <div class="section-title">
-        <h2>Why This Initiative Matters</h2>
-    </div>
+    <div class="story-content">
 
-    <div class="content">
-        <p>
-            Behind every person experiencing hardship is a human story.
-            Some children grow up without the protection and support
-            every child deserves. Some adults face homelessness,
-            unemployment and circumstances that make rebuilding their
-            lives difficult.
-        </p>
-
-        <p>
-            We believe that compassion should lead to action.
-            Hope Initiative is being developed around the belief that
-            people deserve more than temporary sympathy: they deserve
-            opportunities, support and a chance to move forward.
-        </p>
-    </div>
-
-</section>
-
-<!-- TRANSPARENCY -->
-<section class="transparency">
-
-    <div class="section-title">
-        <h2>Transparency and Accountability</h2>
-        <p>Honesty matters as much as the mission.</p>
-    </div>
-
-    <div class="notice">
-
-        <p>
-            <strong>Current project status:</strong>
-            Hope Initiative is currently a proposed charitable project
-            under development. The homes and support programmes described
-            on this website have not yet been established or opened.
-        </p>
-
-        <p>
-            We do not want to make promises that we cannot yet fulfil.
-            Our intention is to build the necessary support, partnerships,
-            resources and arrangements before launching the projects.
-        </p>
-
-        <p>
-            Before public fundraising begins, we intend to provide
-            verifiable information about the organisers, the intended
-            recipients of funds, approved donation methods and how
-            contributions will be managed and reported.
-        </p>
-
-        <p>
-            Any celebrity participation, photograph, endorsement,
-            meet-and-greet, fan card or other supporter benefit will
-            only be advertised if the relevant permission and arrangements
-            have been confirmed.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- DONATION SECTION -->
-<section class="donation-section" id="donate">
-
-    <div class="section-title">
-        <h2>Support the Vision</h2>
-        <p>Every act of generosity can help create an opportunity for change.</p>
-    </div>
-
-    <div class="donation-box">
-
-        <h3>Choose a Donation Amount</h3>
-
-        <p>
-            Select an amount below to view the available cryptocurrency
-            payment information.
-        </p>
-
-        <div class="amount-buttons">
-
-            <button class="amount-btn" onclick="chooseAmount(20)">$20</button>
-
-            <button class="amount-btn" onclick="chooseAmount(50)">$50</button>
-
-            <button class="amount-btn" onclick="chooseAmount(100)">$100</button>
-
-            <button class="amount-btn" onclick="chooseAmount(500)">$500</button>
-
-            <button class="amount-btn" onclick="chooseAmount(1000)">$1,000</button>
-
-            <button class="amount-btn" onclick="chooseAmount(2000)">$2,000</button>
-
-            <button class="amount-btn" onclick="chooseAmount(5000)">$5,000</button>
-
+        <div class="section-title">
+            <h2>More Than Charity. A Chance at Life.</h2>
+            <p>Our vision is built around lasting human impact.</p>
         </div>
 
-        <!-- PAYMENT CHOICES -->
-        <div id="paymentChoices">
-
-            <h3>Selected Amount: <span id="selectedAmount"></span></h3>
-
-            <p>Select your preferred cryptocurrency.</p>
-
-            <div class="payment-buttons">
-
-                <button class="payment-btn" onclick="showPayment('Bitcoin')">
-                    Bitcoin
-                </button>
-
-                <button class="payment-btn" onclick="showPayment('USDT')">
-                    USDT
-                </button>
-
-                <button class="payment-btn" onclick="showPayment('Ethereum')">
-                    Ethereum
-                </button>
-
-            </div>
-
-        </div>
-
-        <!-- PAYMENT POPUP -->
-        <div id="paymentPopup">
-
-            <h3 id="paymentTitle">Donation Payment</h3>
-
-            <p id="paymentAmount"></p>
-
-            <p id="paymentNetwork"></p>
-
-            <div class="address-box" id="paymentAddress"></div>
-
-            <button class="copy-btn" onclick="copyPaymentAddress()">
-                Copy Wallet Address
-            </button>
-
-            <button class="close-btn" onclick="closePayment()">
-                Close
-            </button>
-
-            <p class="small-note">
-                Always confirm the cryptocurrency and network before
-                sending. Sending funds using the wrong network may
-                result in permanent loss.
-            </p>
-
-        </div>
-
-        <a
-            href="https://www.moonpay.com/buy"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="moonpay"
-        >
-            Buy Cryptocurrency with MoonPay
-        </a>
-
-        <p class="small-note">
-            MoonPay availability, supported cryptocurrencies and payment
-            methods depend on your country. Please check its current
-            availability before using the service.
+        <p>
+            Imagine a child growing up in a place where they feel
+            protected, valued and encouraged to dream.
         </p>
 
-        <p class="small-note">
-            Please verify the wallet details and project fundraising
-            arrangements before sending any contribution.
+        <p>
+            Imagine someone who has spent years without a permanent
+            home finally finding a safe place to sleep, an opportunity
+            to work and people willing to support their journey.
+        </p>
+
+        <p>
+            These are the possibilities that inspire this initiative.
+            We want to work toward a future where support is not just
+            temporary, but creates meaningful opportunities for life.
         </p>
 
     </div>
 
 </section>
 
-<!-- MESSAGES OF HOPE -->
 <section>
 
-    <div class="section-title">
-        <h2>Messages of Hope</h2>
-        <p>Words to remind us of the importance of kindness.</p>
-    </div>
+    <div class="transparency">
 
-    <div class="quotes">
+        <h3>Our Promise of Transparency</h3>
 
-        <div class="quote">
-            "A little kindness can become a big reason for someone to hope again."
-            <strong>Hope and Kindness</strong>
-        </div>
+        <p>
+            This website currently presents a proposed charitable
+            initiative. The projects described have not been presented
+            as completed or operational.
+        </p>
 
-        <div class="quote">
-            "Sometimes the greatest gift is giving someone the chance to begin again."
-            <strong>New Beginnings</strong>
-        </div>
+        <p>
+            Before fundraising begins, we will publish the organizers'
+            identities, verified donation recipient details, approved
+            donation methods and clear information about how funds
+            will be managed and reported.
+        </p>
 
-        <div class="quote">
-            "A better world starts when we stop looking away from people in need."
-            <strong>Compassion</strong>
-        </div>
-
-        <div class="quote">
-            "Hope becomes powerful when people work together to make a difference."
-            <strong>Together</strong>
-        </div>
+        <p>
+            Any celebrity-related benefits or supporter experiences
+            will only be advertised after their authorization,
+            arrangements and conditions have been verified.
+        </p>
 
     </div>
 
-    <p class="small-note" style="text-align:center;">
-        These are inspirational messages, not individual donor testimonials.
+</section>
+
+<section class="support">
+
+    <h2>Be Part of the Hope</h2>
+
+    <p>
+        A better future begins when people come together with
+        compassion and a willingness to make a difference.
+        Follow our journey and learn more about the initiative.
     </p>
+
+    <a href="#contact" class="btn">Get in Touch</a>
+
+</section>
+
+<section class="contact" id="contact">
+
+    <div class="section-title">
+        <h2>We Would Love to Hear From You</h2>
+
+        <p>
+            Questions, suggestions or interest in supporting
+            this initiative are welcome.
+        </p>
+    </div>
+
+    <p>Official contact information will be published here after verification.</p>
+
+</section>
+
+<!-- INTERACTIVE DONATION SECTION -->
+
+<section id="donate" style="padding:60px 20px;text-align:center;background:#101c2b;color:white;">
+
+<h2 style="color:#42d879;">Support Our Mission ❤️</h2>
+
+<p>Your generosity can help create homes, support vulnerable children and provide opportunities.</p>
+
+<h3>1. Choose Your Donation Amount</h3>
+
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
+
+<button class="amount-btn" onclick="chooseAmount(20)">$20</button>
+<button class="amount-btn" onclick="chooseAmount(50)">$50</button>
+<button class="amount-btn" onclick="chooseAmount(100)">$100</button>
+<button class="amount-btn" onclick="chooseAmount(500)">$500</button>
+<button class="amount-btn" onclick="chooseAmount(1000)">$1,000</button>
+<button class="amount-btn" onclick="chooseAmount(2000)">$2,000</button>
+<button class="amount-btn" onclick="chooseAmount(5000)">$5,000</button>
+
+</div>
+
+<div id="paymentChoices" style="display:none;margin-top:35px;">
+
+<h3>2. Select Your Payment Method</h3>
+
+<p>Selected donation: <strong id="selectedAmount"></strong></p>
+
+<button type="button" onclick="showPayment('Bitcoin')">₿ Bitcoin</button>
+
+<button type="button" onclick="showPayment('USDT')">₮ USDT</button>
+
+<button type="button" onclick="showPayment('Ethereum')">◆ Ethereum</button>
+
+</div>
+
+<div id="paymentPopup" style="display:none;margin:30px auto;padding:25px;background:#ffffff;color:#172638;border-radius:15px;max-width:500px;overflow-wrap:anywhere;">
+
+<h3 id="paymentTitle"></h3>
+
+<p id="paymentAmount"></p>
+
+<p id="paymentAddress" style="font-weight:bold;margin:15px 0;overflow-wrap:anywhere;"></p>
+
+<button type="button" id="copyAddress" onclick="copyPaymentAddress()" style="display:none;">
+Copy Address
+</button>
+
+<p id="copyStatus" role="status" aria-live="polite" style="margin-top:10px;"></p>
+
+<p id="paymentInstructions" style="margin-top:15px;">
+Please confirm the receiving address and network before sending.
+</p>
+
+<button type="button" onclick="closePayment()">Close</button>
+
+</div>
+
+<hr style="margin:40px 0;">
+
+<h3>Don't Have Cryptocurrency Yet?</h3>
+
+<p>You can explore cryptocurrency purchases through MoonPay.</p>
+
+<a href="https://www.moonpay.com/buy"
+target="_blank"
+rel="noopener noreferrer"
+style="display:inline-block;padding:15px 25px;background:#42d879;color:#101c2b;border-radius:8px;text-decoration:none;font-weight:bold;">
+Buy Crypto with MoonPay
+</a>
+
+<p style="font-size:13px;margin-top:15px;">
+Availability, supported cryptocurrencies and payment options depend on your country.
+</p>
+
+</section>
+
+<style>
+.amount-btn {
+    padding:15px 22px;
+    background:#42d879;
+    color:#101c2b;
+    border:0;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    margin:4px;
+}
+
+.amount-btn:hover {
+    background:#75ef91;
+}
+
+#paymentChoices button,
+#paymentPopup button {
+    padding:12px 18px;
+    margin:6px;
+    border:0;
+    border-radius:7px;
+    background:#42d879;
+    color:#101c2b;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#paymentChoices button:hover,
+#paymentPopup button:hover {
+    background:#75ef91;
+}
+</style>
+
+<script>
+let selectedDonation = 0;
+let currentAddress = "";
+
+/*
+  Donation wallet addresses supplied for this website.
+
+  IMPORTANT:
+  Confirm the supported network for each address with
+  your wallet provider before accepting payments.
+*/
+
+const paymentAddresses = {
+    Bitcoin: "3NBJhwT4uSqCVQKFhrZSvA7DyAj9ooDDXX",
+
+    USDT: "TCsGGusDMiAVyEsNvpU1W8Kp5885AmTx33",
+
+    Ethereum: "0x5b537A7D76ddc1385A072a582B8dfDb5A9BDdfdA"
+};
+
+function chooseAmount(amount) {
+
+    selectedDonation = amount;
+
+    document.getElementById("selectedAmount").textContent =
+        "$" + amount.toLocaleString("en-US");
+
+    document.getElementById("paymentChoices").style.display = "block";
+
+    document.getElementById("paymentPopup").style.display = "none";
+
+    document.getElementById("paymentChoices").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+function showPayment(method) {
+
+    if (!selectedDonation) {
+        alert("Please choose a donation amount first.");
+        return;
+    }
+
+    if (!paymentAddresses[method]) {
+        alert("Payment method not found.");
+        return;
+    }
+
+    currentAddress = paymentAddresses[method];
+
+    document.getElementById("paymentTitle").textContent =
+        method + " Donation";
+
+    document.getElementById("paymentAmount").textContent =
+        "Donation amount: $" + selectedDonation.toLocaleString("en-US");
+
+    document.getElementById("paymentAddress").textContent =
+        currentAddress;
+
+    document.getElementById("copyAddress").style.display =
+        "inline-block";
+
+    document.getElementById("copyStatus").textContent = "";
+
+    document.getElementById("paymentInstructions").textContent =
+        "IMPORTANT: Confirm the correct cryptocurrency network with the wallet owner before sending. Do not send funds until the network and recipient details have been independently verified.";
+
+    document.getElementById("paymentPopup").style.display = "block";
+
+    document.getElementById("paymentPopup").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+async function copyPaymentAddress() {
+
+    if (!currentAddress) {
+        return;
+    }
+
+    const status = document.getElementById("copyStatus");
+
+    try {
+
+        if (navigator.clipboard && window.isSecureContext) {
+
+            await navigator.clipboard.writeText(currentAddress);
+
+        } else {
+
+            const temporaryInput = document.createElement("textarea");
+
+            temporaryInput.value = currentAddress;
+            temporaryInput.style.position = "fixed";
+            temporaryInput.style.opacity = "0";
+
+            document.body.appendChild(temporaryInput);
+
+            temporaryInput.focus();
+            temporaryInput.select();
+
+            const copied = document.execCommand("copy");
+
+            document.body.removeChild(temporaryInput);
+
+            if (!copied) {
+                throw new Error("Copy failed");
+            }
+        }
+
+        status.textContent = "Wallet address copied successfully!";
+
+    } catch (error) {
+
+        status.textContent =
+            "Automatic copying failed. Please select and copy the address manually.";
+
+    }
+}
+
+function closePayment() {
+
+    document.getElementById("paymentPopup").style.display = "none";
+
+}
+</script>
+
+<!-- MESSAGES OF HOPE -->
+
+<section style="padding:60px 20px; text-align:center; background:#f3f6f5; color:#172638;">
+
+    <h2>Messages of Hope ❤️</h2>
+
+    <p>Every act of kindness can make a difference.</p>
+
+    <div style="max-width:650px; margin:25px auto;">
+
+        <blockquote>
+            "Every child deserves a safe place to sleep, a loving environment and the opportunity to dream."
+        </blockquote>
+
+        <blockquote>
+            "A little kindness today can create a brighter tomorrow."
+        </blockquote>
+
+        <blockquote>
+            "Helping someone stand again is one of the greatest gifts we can give."
+        </blockquote>
+
+        <blockquote>
+            "Together, we can turn hope into meaningful opportunities."
+        </blockquote>
+
+    </div>
+
+    <p><strong>Inspirational messages — not individual donor testimonials.</strong></p>
 
 </section>
 
 <!-- SUPPORTER REVIEWS -->
-<section class="story">
 
-    <div class="section-title">
-        <h2>Supporter Reviews</h2>
-        <p>Real voices matter.</p>
-    </div>
+<section style="padding:50px 20px; text-align:center; background:#ffffff; color:#172638;">
 
-    <div class="content">
+    <h2>Supporter Experiences</h2>
 
-        <p>
-            We look forward to sharing genuine feedback from supporters
-            and partners as the initiative develops.
-        </p>
+    <p>We look forward to sharing genuine messages from supporters as they become available.</p>
 
-        <p>
-            Reviews will only be published when they have been genuinely
-            received and permission has been granted.
-        </p>
-
-    </div>
+    <p>Verified supporter reviews will appear here with permission from their authors.</p>
 
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
+</main>
 
-    <div class="section-title">
-        <h2>Contact Us</h2>
-        <p>Questions, partnerships and enquiries.</p>
-    </div>
-
-    <div class="contact-box">
-
-        <p>
-            We welcome genuine enquiries from individuals,
-            organisations and potential partners who share our vision.
-        </p>
-
-        <p>
-            Official contact information will be published here
-            once the project's communication channels are ready.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- FOOTER -->
 <footer>
 
-    <p><strong>HOPE INITIATIVE</strong></p>
+    <p><strong>Hope Initiative</strong></p>
 
-    <p>Compassion. Dignity. Opportunity.</p>
-
-    <p>
-        An independent proposed charitable initiative.
-        This is not an official celebrity website.
-    </p>
+    <p>Building hope. Restoring dignity. Creating opportunities.</p>
 
     <p>
-        No celebrity endorsement or supporter benefit is implied
-        unless separately confirmed and authorised.
+        This is an independent proposed charitable initiative.
+        It is not represented as Blake Shelton's official website.
     </p>
 
-    <p style="margin-top:15px;">
-        &copy; <span id="year"></span> Hope Initiative.
-        All rights reserved.
-    </p>
+    <p>&copy; 2026 Hope Initiative. All rights reserved.</p>
 
 </footer>
-
-<script>
-
-    let selectedDonation = 0;
-    let currentAddress = "";
-
-    const paymentAddresses = {
-
-        Bitcoin: {
-            address: "3NBJhwT4uSqCVQKFhrZSvA7DyAj9ooDDXX",
-            network: "Bitcoin network — confirm this address is correct before sending."
-        },
-
-        USDT: {
-            address: "TCsGGusDMiAVyEsNvpU1W8Kp5885AmTx33",
-            network: "USDT network is not yet confirmed. Verify the exact network with your wallet before sending."
-        },
-
-        Ethereum: {
-            address: "0x5b537A7D76ddc1385A072a582B8dfDb5A9BDdfdA",
-            network: "Ethereum network is not yet confirmed. Verify the exact network with your wallet before sending."
-        }
-
-    };
-
-
-    function chooseAmount(amount) {
-
-        selectedDonation = amount;
-
-        document.getElementById("selectedAmount").textContent =
-            "$" + amount.toLocaleString("en-US");
-
-        document.getElementById("paymentChoices").style.display = "block";
-
-        document.getElementById("paymentPopup").style.display = "none";
-
-        document.getElementById("paymentChoices").scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }
-
-
-    function showPayment(method) {
-
-        if (!paymentAddresses[method]) {
-            alert("Payment method not found.");
-            return;
-        }
-
-        document.getElementById("paymentTitle").textContent =
-            method + " Donation";
-
-        document.getElementById("paymentAmount").textContent =
-            "Selected donation amount: $" +
-            selectedDonation.toLocaleString("en-US");
-
-        currentAddress = paymentAddresses[method].address;
-
-        document.getElementById("paymentAddress").textContent =
-            currentAddress;
-
-        document.getElementById("paymentNetwork").textContent =
-            paymentAddresses[method].network;
-
-        document.getElementById("paymentPopup").style.display = "block";
-
-        document.getElementById("paymentPopup").scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }
-
-
-    function copyPaymentAddress() {
-
-        if (!currentAddress) {
-            alert("No wallet address selected.");
-            return;
-        }
-
-        if (navigator.clipboard && window.isSecureContext) {
-
-            navigator.clipboard.writeText(currentAddress)
-                .then(function() {
-                    alert("Wallet address copied successfully.");
-                })
-                .catch(function() {
-                    alert("Please copy the wallet address manually.");
-                });
-
-        } else {
-
-            alert("Please copy the wallet address manually.");
-
-        }
-
-    }
-
-
-    function closePayment() {
-
-        document.getElementById("paymentPopup").style.display = "none";
-
-    }
-
-
-    document.getElementById("year").textContent =
-        new Date().getFullYear();
-
-</script>
 
 </body>
 </html>
