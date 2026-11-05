@@ -550,46 +550,146 @@ footer a {
 </section>
 
     <!-- DONATION SECTION -->
-<section id="donate" style="padding:60px 20px; text-align:center; background:#101c2b; color:white;">
+<!-- INTERACTIVE DONATION SECTION -->
+<section id="donate" style="padding:60px 20px;text-align:center;background:#101c2b;color:white;">
 
-    <h2 style="color:#42d879;">Support the Mission</h2>
+<h2 style="color:#42d879;">Support Our Mission ❤️</h2>
 
-    <p>Your generosity can help create safer homes, support vulnerable children and provide opportunities for people experiencing homelessness.</p>
+<p>Your generosity can help create homes, support vulnerable children and provide opportunities.</p>
 
-    <h3>Choose Your Donation Amount</h3>
+<h3>1. Choose Your Donation Amount</h3>
 
-    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin:25px 0;">
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
 
-        <button>$20</button>
-        <button>$50</button>
-        <button>$100</button>
-        <button>$500</button>
-        <button>$1,000</button>
-        <button>$2,000</button>
-        <button>$5,000</button>
-        <button>$10,000</button>
-        <button>$20,000</button>
-        <button>$50,000</button>
+<button class="amount-btn" onclick="chooseAmount(20)">$20</button>
+<button class="amount-btn" onclick="chooseAmount(50)">$50</button>
+<button class="amount-btn" onclick="chooseAmount(100)">$100</button>
+<button class="amount-btn" onclick="chooseAmount(500)">$500</button>
+<button class="amount-btn" onclick="chooseAmount(1000)">$1,000</button>
+<button class="amount-btn" onclick="chooseAmount(2000)">$2,000</button>
+<button class="amount-btn" onclick="chooseAmount(5000)">$5,000</button>
+<button class="amount-btn" onclick="chooseAmount(10000)">$10,000</button>
+<button class="amount-btn" onclick="chooseAmount(20000)">$20,000</button>
+<button class="amount-btn" onclick="chooseAmount(50000)">$50,000</button>
 
-    </div>
+</div>
 
-    <h3>Available Payment Methods</h3>
+<div id="paymentChoices" style="display:none;margin-top:35px;">
 
-    <div style="max-width:500px; margin:auto;">
+<h3>2. Select Your Payment Method</h3>
 
-        <p>₮ USDT (Tether)</p>
-        <p>₿ Bitcoin (Cash App)</p>
-        <p>◆ Ethereum (ETH)</p>
+<p>Selected donation: <strong id="selectedAmount"></strong></p>
 
-        <p style="color:#42d879;">
-            Official receiving addresses will be published here after verification.
-        </p>
+<button onclick="showPayment('Bitcoin')">₿ Bitcoin</button>
 
-    </div>
+<button onclick="showPayment('USDT')">₮ USDT</button>
 
-    <p>Only send donations after checking the official receiving address and supported network.</p>
+<button onclick="showPayment('Ethereum')">◆ Ethereum</button>
+
+</div>
+
+<div id="paymentPopup" style="display:none;margin:30px auto;padding:25px;background:#ffffff;color:#172638;border-radius:15px;max-width:500px;">
+
+<h3 id="paymentTitle"></h3>
+
+<p id="paymentAmount"></p>
+
+<p id="paymentAddress">Receiving address will be published after verification.</p>
+
+<button id="copyAddress" onclick="copyPaymentAddress()" style="display:none;">
+Copy Address
+</button>
+
+<p id="paymentInstructions">
+Please confirm the receiving address and network before sending.
+</p>
+
+<button onclick="closePayment()">Close</button>
+
+</div>
+
+<hr style="margin:40px 0;">
+
+<h3>Don't Have Cryptocurrency Yet?</h3>
+
+<p>You can explore cryptocurrency purchases through MoonPay.</p>
+
+<a href="https://www.moonpay.com/buy"
+target="_blank"
+rel="noopener noreferrer"
+style="display:inline-block;padding:15px 25px;background:#42d879;color:#101c2b;border-radius:8px;text-decoration:none;font-weight:bold;">
+Buy Crypto with MoonPay
+</a>
+
+<p style="font-size:13px;margin-top:15px;">
+Availability, supported cryptocurrencies and payment options depend on your country.
+</p>
 
 </section>
+
+<style>
+.amount-btn {
+padding:15px 22px;
+background:#42d879;
+color:#101c2b;
+border:0;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+margin:4px;
+}
+</style>
+
+<script>
+let selectedDonation = 0;
+let currentAddress = "";
+
+function chooseAmount(amount) {
+    selectedDonation = amount;
+
+    document.getElementById("selectedAmount").textContent =
+        "$" + amount.toLocaleString("en-US");
+
+    document.getElementById("paymentChoices").style.display = "block";
+    document.getElementById("paymentPopup").style.display = "none";
+
+    document.getElementById("paymentChoices").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function showPayment(method) {
+    document.getElementById("paymentTitle").textContent =
+        method + " Donation";
+
+    document.getElementById("paymentAmount").textContent =
+        "Donation amount: $" + selectedDonation.toLocaleString("en-US");
+
+    currentAddress = "";
+
+    document.getElementById("paymentAddress").textContent =
+        "Official " + method + " receiving address will be added after verification.";
+
+    document.getElementById("copyAddress").style.display = "none";
+    document.getElementById("paymentPopup").style.display = "block";
+
+    document.getElementById("paymentPopup").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function copyPaymentAddress() {
+    if (!currentAddress) return;
+
+    navigator.clipboard.writeText(currentAddress)
+        .then(() => alert("Address copied!"))
+        .catch(() => alert("Please copy the address manually."));
+}
+
+function closePayment() {
+    document.getElementById("paymentPopup").style.display = "none";
+}
+</script>
 
 
 <!-- MESSAGES OF HOPE -->
